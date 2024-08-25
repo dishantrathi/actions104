@@ -4,9 +4,19 @@ on:
 jobs:
   build:
     strategy:
-      matrix:
+      fail-fast: false #true default
+      matrix: #[max 256 jobs]
         version: [14, 16, 17]
         platform: [ubuntu-latest, macos-latest, windows-latest]
+        experimental: [false]
+        exclude:
+          - platform: macos-latest
+            version: 14
+        include:
+          - platform: ubuntu-latest
+            version: 18
+            experimental: true
+        continue-on-error: ${{matrix.experimental}}
     runs-on: ${{ matrix.platform }}
     steps:
     - uses: actions/checkout@v2
