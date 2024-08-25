@@ -17,8 +17,8 @@ jobs:
           - platform: ubuntu-latest
             version: 18
             experimental: true
-        continue-on-error: ${{matrix.experimental}}
     runs-on: ${{ matrix.platform }}
+    continue-on-error: ${{matrix.experimental}}
     steps:
     - uses: actions/checkout@v2
     - name: Use Node.js ${{ matrix.version }}
