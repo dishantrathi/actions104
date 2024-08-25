@@ -13,9 +13,14 @@ jobs:
         exclude:
           - platform: macos-latest
             version: 14
+          - platform: windows-latest
+            version: 14
         include:
           - platform: ubuntu-latest
             version: 18
+            experimental: true
+          - platform: windows-latest
+            version: 14
             experimental: true
     runs-on: ${{ matrix.platform }}
     continue-on-error: ${{matrix.experimental}}
