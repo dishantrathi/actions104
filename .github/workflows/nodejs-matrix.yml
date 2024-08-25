@@ -1,5 +1,6 @@
 name: Matrix with Node.js
 on:
+  push:
   workflow_dispatch:
 jobs:
   build:
