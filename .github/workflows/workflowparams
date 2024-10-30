@@ -1,0 +1,97 @@
+name: Sample Workflow
+
+on:
+  workflow_dispatch:
+    inputs:
+      string_input:
+        description: 'A simple string input'
+        required: true
+        default: 'default string'
+      boolean_input:
+        description: 'A boolean input'
+        required: true
+        default: false
+      choice_input:
+        description: 'A choice input'
+        required: true
+        default: 'option1'
+        options:
+          - option1
+          - option2
+          - option3
+      number_input:
+        description: 'A number input'
+        required: true
+        default: 42
+      environment_input:
+        description: 'An environment input'
+        required: true
+        default: 'production'
+        options:
+          - development
+          - staging
+          - production
+      date_input:
+        description: 'A date input'
+        required: true
+        default: '2024-01-01'
+      time_input:
+        description: 'A time input'
+        required: true
+        default: '12:00'
+      datetime_input:
+        description: 'A datetime input'
+        required: true
+        default: '2024-01-01T12:00:00Z'
+      file_input:
+        description: 'A file input'
+        required: true
+      multi_choice_input:
+        description: 'A multi-choice input'
+        required: true
+        default: 'option1'
+        options:
+          - option1
+          - option2
+          - option3
+      secret_input:
+        description: 'A secret input'
+        required: true
+      json_input:
+        description: 'A JSON input'
+        required: true
+        default: '{"key": "value"}'
+      list_input:
+        description: 'A list input'
+        required: true
+        default: 'item1,item2,item3'
+      map_input:
+        description: 'A map input'
+        required: true
+        default: '{"key1": "value1", "key2": "value2"}'
+      url_input:
+        description: 'A URL input'
+        required: true
+        default: 'https://example.com'
+
+jobs:
+  example_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print inputs
+        run: |
+          echo "String Input: ${{ github.event.inputs.string_input }}"
+          echo "Boolean Input: ${{ github.event.inputs.boolean_input }}"
+          echo "Choice Input: ${{ github.event.inputs.choice_input }}"
+          echo "Number Input: ${{ github.event.inputs.number_input }}"
+          echo "Environment Input: ${{ github.event.inputs.environment_input }}"
+          echo "Date Input: ${{ github.event.inputs.date_input }}"
+          echo "Time Input: ${{ github.event.inputs.time_input }}"
+          echo "Datetime Input: ${{ github.event.inputs.datetime_input }}"
+          echo "File Input: ${{ github.event.inputs.file_input }}"
+          echo "Multi-choice Input: ${{ github.event.inputs.multi_choice_input }}"
+          echo "Secret Input: ${{ github.event.inputs.secret_input }}"
+          echo "JSON Input: ${{ github.event.inputs.json_input }}"
+          echo "List Input: ${{ github.event.inputs.list_input }}"
+          echo "Map Input: ${{ github.event.inputs.map_input }}"
+          echo "URL Input: ${{ github.event.inputs.url_input }}"
